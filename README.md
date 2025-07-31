@@ -1,49 +1,52 @@
-#📦 Projeto 2 – Compactação de Imagens BMP
+📦 Projeto 2 – Compactação de Imagens BMP
 Este projeto foi desenvolvido para a disciplina Algoritmos e Programação II na Universidade Presbiteriana Mackenzie.
-O objetivo é compactar e descompactar imagens BMP 24 bits (true color) usando um método recursivo baseado em quadrantes.
+O objetivo é compactar e descompactar imagens BMP 24 bits (true color) utilizando um método recursivo baseado em quadrantes.
 
-🔹 O que o programa faz:
--Lê uma imagem BMP original (imagemOriginal.bmp) e guarda seus pixels em uma matriz.
+🔹 Funcionalidades
+O programa realiza três etapas principais:
 
--Compacta a imagem:
+1. Leitura da Imagem
+Lê uma imagem BMP original (imagemOriginal.bmp).
 
--Divide recursivamente em 4 quadrantes.
+Armazena os pixels em uma matriz para processamento.
 
--Quando o quadrante é menor ou igual a 3x3, salva o pixel central como representante.
+2. Compactação
+Divide a imagem recursivamente em 4 quadrantes.
 
--Salva os valores R, G, B em vetores.
+Quando o quadrante é 3x3 ou menor, salva apenas o pixel central como representativo.
 
--Gera um arquivo compactado (imagemCompactada.zmp) com:
+Os valores de cada pixel representativo são armazenados em três vetores: vetorR, vetorG, vetorB.
 
--Cabeçalho BMP
+Gera um arquivo compactado imagemCompactada.zmp contendo:
 
--Pixels representativos da imagem
+Cabeçalho BMP.
 
-Descompacta a imagem:
+Pixels representativos da imagem.
 
--Lê o arquivo .zmp
+3. Descompactação
+Lê o arquivo .zmp.
 
--Reconstrói a matriz de pixels preenchendo os quadrantes com seus pixels centrais
+Reconstrói a matriz de pixels preenchendo os quadrantes com a cor do pixel central.
 
--Salva a imagem reconstruída como imagemDescompactada.bmp
+Salva a imagem reconstruída como imagemDescompactada.bmp.
 
--Exibe no terminal informações de conclusão de compactação e descompactação.
+Exibe no terminal informações sobre a conclusão do processo.
 
-🔹 Estrutura de arquivos:
--compactador.c → Código-fonte do projeto.
+🔹 Estrutura de Arquivos
+bash
+Copiar
+Editar
+├── compactador.c                # Código-fonte principal
+├── imagemOriginal.bmp           # Imagem original para compactação
+├── imagemCompactada.zmp         # Arquivo gerado após a compactação
+└── imagemDescompactada.bmp      # Imagem reconstruída após descompactação
 
--imagemOriginal.bmp → Imagem que será compactada.
+🔹 Lógica da Compactação
+A imagem é dividida recursivamente em 4 quadrantes.
 
--imagemCompactada.zmp → Arquivo gerado após compactação.
+Quadrantes de 3x3 ou menores são representados pelo pixel central.
 
--imagemDescompactada.bmp → Imagem reconstruída com perda de detalhes.
+Cada pixel representativo tem seus valores R, G, B armazenados em vetores separados.
 
-🔹 Lógica da Compactação:
--O algoritmo divide a imagem em quadrantes recursivamente.
-
--Quando a área é 3x3 ou menor, escolhe o pixel central como representativo.
-
--Salva os valores em três vetores: vetorR, vetorG, vetorB.
-
-´-Na descompactação, reconstrói a imagem preenchendo os quadrantes com a cor do pixel central.
+Na descompactação, a imagem é reconstruída preenchendo cada quadrante com a cor do seu pixel central.
 
